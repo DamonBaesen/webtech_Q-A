@@ -1,70 +1,17 @@
-var _ = require('lodash');
-var User = require('./../models/user');
-var config = require('./../config/config.json');
+var User = require('../models/user');
 
-// get all users
-function getAll(req, res, next) {
-  var limit = req.query.limit || config.listLimit;
-  limit = parseInt(limit, 10);
+function registreer(req, res) {
 
-  User
-    .find({})
-    .sort({ '_id' : -1 })
-    .limit(limit)
-    .populate('family')
-    .exec(function onUsersFound(err, users) {
-      // we return the json version with cleaned up model of the user
-      var transform = _.map(users, function (user) {
-        return user.toJSON();
-      });
-      transform = _.reverse(transform);
-      res.send(transform);
-    });
-}
-module.exports.read = getAll;
+  // save a new instance of this model
+  var newUser = new User({
+    username: req.body.inputUsername,
+    email: req.body.inputEmail,
+    wachtwoord: req.body.inputWachtwoord
+  });
 
-// get one user by id (req.params.id)
-function getOne(req, res, next) {
-  User.findOne({_id: req.params.id}, function onUserFound(err, user) {
-    if(!user) {
-      res.status(404).send("User not found");
-    }
-
-    // we return the json version with cleaned up model of the user
-    res.send(user.toJSON());
+  newUser.save(function (err, message) {
+    if (err) {return console.error(err); }
+    res.redirect("/");
   });
 }
-module.exports.readOne = getOne;
-
-// create a new user (req.body)
-function add(req, res, next) {
-  var newUser = new User(req.body);
-
-  newUser.save(function onUserSaved(err, user) {
-    // we return the json version with cleaned up model of the user
-    res.send(user.toJSON());
-  });
-}
-module.exports.create = add;
-
-// update a user (req.body)
-function update(req, res, next) {
-  User.findOneAndUpdate({_id: req.params.id}, req.body, function onUserUpdated(err, user) {
-    if(!user) {
-      res.status(404).send("User not found");
-    }
-
-    // we return the json version with cleaned up model of the user
-    res.send(user.toJSON());
-  });
-}
-module.exports.update = update;
-
-// remove one user by id (req.params.id)
-function remove(req, res, next) {
-  User.findOneAndRemove({_id: req.params.id}, function onUserFound(err, user) {
-    res.status(204).send();
-  });
-}
-module.exports.remove = remove;
-
+module.exports.registreer = registreer;
