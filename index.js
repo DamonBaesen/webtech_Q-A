@@ -5,6 +5,8 @@ var ejs = require('ejs');
 var cors = require('cors');
 var mongoose = require('mongoose');
 var config = require('./config/config.json');
+var bodyParser = require('body-parser')
+
 
 // create an application
 var app = express();
@@ -32,7 +34,9 @@ app.use(express.static('public'));
 
 // the body parser will parse json we post to a url
 // and make it available on the request under req.body
-app.use(require('body-parser').json());
+app.use(bodyParser());
+app.use(bodyParser.json());
+
 
 // include our router
 app.use('/', require('./routers/index'));
@@ -40,6 +44,8 @@ app.use('/login', require('./routers/login'));
 app.use('/registreer', require('./routers/signup'));
 app.use('/create', require('./routers/create'));
 app.use('/discussion', require('./routers/discussion'));
+
+
 
 // fire up our server, on port 3000.
 app.listen(config.port, function () {
