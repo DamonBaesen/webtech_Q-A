@@ -38,6 +38,8 @@ app.use(require('body-parser').json());
 app.use('/', require('./routers/index'));
 app.use('/login', require('./routers/login'));
 app.use('/registreer', require('./routers/signup'));
+app.use('/create', require('./routers/create'));
+app.use('/discussion', require('./routers/discussion'));
 
 // fire up our server, on port 3000.
 app.listen(config.port, function () {
