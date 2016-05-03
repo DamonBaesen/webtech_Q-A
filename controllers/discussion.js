@@ -1,4 +1,4 @@
-var Question = require('../models/discussion');
+var Discussion = require('../models/discussion');
 
 function create(req, res) {
 
@@ -6,7 +6,7 @@ function create(req, res) {
     var newQuestion = new Discussion({
         moderator: "Damon",
         question: req.body.question,
-        date: "11-11-2011",
+        date: Date.now(),
         place: "Mechelen"
     });
 

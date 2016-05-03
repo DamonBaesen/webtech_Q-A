@@ -5,9 +5,9 @@
   </head>
   <body>
     <h1>Maak een nieuwe discussie aan hieronder</h1>
-    <form action="" method="post">
-        <label for="labelinputUsername">Titel</label>
-        <input type="text" id="inputTitle" name="inputTitle">
+    <form action="/create" method="post" enctype="multipart/form-data">
+        <label for="question">Titel</label>
+        <input type="text" id="question" name="question" placeholder="Titel discussie...">
         <input type="submit" name="submitLogin" id="submitLogin" value="Maak nieuwe discussie aan">
     </form>
    
