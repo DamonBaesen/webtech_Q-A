@@ -1,10 +1,19 @@
 var Discussion = require('../models/discussion');
+//var geolocation = require('node-geolocation');
 
-function create(req, res , next) {
+function create(req, res ) {
     console.log(req.body);
     // req.body --> $post php
     // save a new instance of this model
     var discussionText = req.body.questionName;
+
+   /* function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    } */
 
     var newQuestion = new Discussion({
         moderator: "Damon",
@@ -19,12 +28,3 @@ function create(req, res , next) {
     });
 }
 module.exports.create = create;
-
-function getAll(req, res) {
-    Question.find(function (err, messages) {
-        if (err) {return console.error(err); }
-        
-        res.send(messages);
-    });
-}
-module.exports.getAll = getAll;

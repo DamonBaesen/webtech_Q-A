@@ -5,7 +5,8 @@ var ejs = require('ejs');
 var cors = require('cors');
 var mongoose = require('mongoose');
 var config = require('./config/config.json');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+//var geolocation = require('node-geolocation');
 
 
 // create an application
