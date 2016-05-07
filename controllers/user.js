@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var mongo = require('mongo');
 
 function registreer(req, res) {
 
@@ -15,3 +16,6 @@ function registreer(req, res) {
   });
 }
 module.exports.registreer = registreer;
+
+
+

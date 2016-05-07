@@ -9,13 +9,17 @@
   "author": "Damon Baesen <damon.baesen@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.0",
     "chalk": "^1.1.1",
     "cors": "^2.7.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "lodash": "^4.6.1",
+    "mongo": "^0.1.0",
     "mongoose": "^4.4.14",
-    "node-geolocation": "^1.15.14"
+    "node-geolocation": "^1.15.14",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

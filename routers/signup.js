@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/user');
 
+
 // the root url, if requested we will render the index page
 router.get('/', function(req, res) {
   res.render('signup', {
@@ -12,5 +13,8 @@ router.get('/', function(req, res) {
 router.post("/", function (req, res) {
   controller.registreer(req, res);
 });
+
+
+
 
 module.exports = router;

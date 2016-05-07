@@ -6,6 +6,9 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 var config = require('./config/config.json');
 var bodyParser = require('body-parser');
+var mongo = require('mongo');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 //var geolocation = require('node-geolocation');
 
 
@@ -14,6 +17,7 @@ var app = express();
 
 // connect to our database
 mongoose.connect('mongodb://localhost/liveQA');
+var db = mongoose.connection;
 
 // Initialize cors: Cross Origin Resource Sharing
 // by default, you can only request on the same domain.
@@ -39,6 +43,18 @@ app.use(bodyParser());
 app.use(bodyParser.json());
 
 
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+/* ========= mijn probeersel====== */
+
+
+
+
+
+/*=========einde probeersel ========*/
+
 // include our router
 app.use('/', require('./routers/index'));
 app.use('/login', require('./routers/login'));
@@ -52,4 +68,5 @@ app.use('/discussion', require('./routers/discussion'));
 app.listen(config.port, function () {
   console.log(chalk.blue('Your app is available on ' + chalk.bold.yellow('http://localhost:' + config.port) + '!'));
 });
+
 
