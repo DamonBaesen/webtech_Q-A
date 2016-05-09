@@ -1,4 +1,3 @@
-var MongoClient = require('mongodb').MongoClient;
 var Discussion = require('../models/discussion');
 
 function create(req, res) {

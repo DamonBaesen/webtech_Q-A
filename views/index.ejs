@@ -13,7 +13,13 @@
    </div>
     <h1>Ontdek hieronder discussies bij jou in de buurt:</h1>
     <ul>
-          
+
+            <% for(var i=0; i < discussions.length; i++) { %>
+
+                <li><a href="/discussion"><%= discussions[i].question %></a></li>
+
+            <% } %>
+        </table>
     </ul>
     <div>
         <h2>Login om te kunnen reageren of om een discussie aan te maken</h2>
