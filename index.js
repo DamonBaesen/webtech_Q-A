@@ -45,6 +45,7 @@ app.use('/login', require('./routers/login'));
 app.use('/registreer', require('./routers/signup'));
 app.use('/create', require('./routers/create'));
 app.use('/discussion', require('./routers/discussion'));
+app.use('/discussion/:id', require('./routers/discussion'));
 
 
 

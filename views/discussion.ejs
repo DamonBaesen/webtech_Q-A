@@ -4,6 +4,13 @@
     <title><%= title %></title>
   </head>
   <body>
+
+<h1><%= discussions[discussionID].question %></h1>
+<form action="/" method="post">
+    <label for="question">Titel</label>
+    <input type="text" id="questionName" name="questionName" placeholder="Vraag...">
+    <input type="submit" name="submitLogin" id="submitLogin" value="Stel een nieuwe vraag">
+</form>
     <a href="/">Ga terug</a>
     
   </body>

@@ -1,16 +1,17 @@
 var MongoClient = require('mongodb').MongoClient;
-var Discussion = require('../models/discussion');
 
-module.exports.getAllDiscussions =  function getAllDiscussions (req, res) {
+module.exports.getAllDiscussions =  function getAllDiscussions (callback) {
     MongoClient.connect('mongodb://localhost:27017/liveQA', function (err, db) {
         if (err) {
             throw err;
         }
-        db.collection('discussions').find().toArray(function (err, result) {
+        db.collection('discussions').find({},{question:1, _id:1}).toArray(function (err, result) {
             if (err) {
                 throw err;
             }
-            return result;
+            return callback(result);
         });
     });
-}
+};
+
+

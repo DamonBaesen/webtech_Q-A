@@ -15,9 +15,7 @@
     <ul>
 
             <% for(var i=0; i < discussions.length; i++) { %>
-
-                <li><a href="/discussion"><%= discussions[i].question %></a></li>
-
+                <li><a href="/discussion/<%= i %>"><%= discussions[i].question %></a></li>
             <% } %>
         </table>
     </ul>

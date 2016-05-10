@@ -1,4 +1,16 @@
 body
 {
-    background-color: bisque;
+    background-color: silver;
+    color: brown;
+}
+
+a
+{
+    color: brown;
+    text-emphasis: none;
+}
+
+li
+{
+    text-emphasis: none;
 }
