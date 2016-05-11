@@ -17,12 +17,17 @@
     "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.7",
+    "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.2.0",
+    "gulp-watch": "^4.3.5",
     "lodash": "^4.6.1",
     "mongo": "^0.1.0",
     "mongoose": "^4.4.14",
     "node-geolocation": "^1.15.14",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp-auto-reload": "^0.1.0"
   }
 }
