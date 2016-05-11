@@ -1,13 +1,11 @@
-var Discussion = require('../models/discussion');
+var Question = require('../models/question');
 
-function create(req, res) {
-    var discussionText = req.body.questionName;
-
-    var newQuestion = new Discussion({
-        moderator: "Damon",
-        question: discussionText,
-        date: Date.now(),
-        place: "Mechelen"
+function createQuestion(req, res) {
+    var questionText = req.body.questionName;
+    var newQuestion = new Question({
+        user: "Damon",
+        question: questionText,
+        date: Date.now()
     });
 
     newQuestion.save(function (err, message) {
@@ -17,6 +15,6 @@ function create(req, res) {
         res.redirect("/");
     });
 
-};
+}
 
-module.exports.create = create;
+module.exports.create = createQuestion;
