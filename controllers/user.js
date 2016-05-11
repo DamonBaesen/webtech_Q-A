@@ -11,7 +11,7 @@ function registreer(req, res) {
 
   newUser.save(function (err, message) {
     if (err) {return console.error(err); }
-    res.redirect("/");
+    res.redirect("/users/login");
   });
 }
 module.exports.registreer = registreer;
