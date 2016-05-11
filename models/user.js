@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-  firstname: String,
-  lastname: String,
-  family: [{type: Schema.ObjectId, ref: 'User'}]
+  username: String,
+  email: String,
+  wachtwoord: String
 });
 
 var User = mongoose.model('User', userSchema);
