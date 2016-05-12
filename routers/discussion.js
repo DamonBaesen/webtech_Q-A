@@ -3,7 +3,9 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var controllerCreate = require('../controllers/discussion');
 var controllerQuestion = require('../controllers/questions');
+var controller = require('../controllers/index');
 var discussions = "";
+var questions = "";
 var discussionID = "";
 
 // the root url, if requested we will render the index page
@@ -20,16 +22,22 @@ router.get('/', function (req, res) {
 });
 
 router.get('/:id', function(req, res) {
-  discussionID = req.params.id;
-  controllerCreate.getAllQuestions(function (response) {
-    discussions = response;
+    discussionID = req.params.id;
+    controller.getAllDiscussions(function (response) {
+        discussions = response;
+    });
+
+
+  controllerQuestion.getAllQuestions(function (response) {
+    questions = response;
 
     res.render('discussion', {
       title: 'Live Q&A',
+      discussionID: discussionID,
       discussions: discussions,
-      discussionID: discussionID
+        questions: questions
     });
-  });
+  }, discussionID);
 
 
 });
