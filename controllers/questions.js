@@ -1,27 +1,23 @@
-var Question = require('../models/discussion');
+var Question = require('../models/question');
 
-function create(req, res) {
-
-    // save a new instance of this model
-    var newQuestion = new Discussion({
-        moderator: "Damon",
-        question: req.body.question,
-        date: "11-11-2011",
-        place: "Mechelen"
+function createQuestion(req, res, discussionID) {
+    var questionText = req.body.questionName;
+    var newQuestion = new Question({
+        user: "Damon",
+        question: questionText,
+        date: Date.now(),
+        discussionID: discussionID
     });
 
     newQuestion.save(function (err, message) {
-        if (err) {return console.error(err); }
-        res.send(message);
+        if (err) {
+            return console.error(err);
+        }
+        res.redirect("/discussion/" + discussionID);
     });
-}
-module.exports.create = create;
 
-function getAll(req, res) {
-    Question.find(function (err, messages) {
-        if (err) {return console.error(err); }
-        
-        res.send(messages);
-    });
 }
-module.exports.getAll = getAll;
+
+module.exports.create = createQuestion;
+
+

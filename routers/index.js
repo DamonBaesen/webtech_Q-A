@@ -6,15 +6,15 @@ var discussions = "";
 
 // the root url, if requested we will render the index page
 router.get('/', function(req, res) {
+
     controller.getAllDiscussions(function (response) {
         discussions = response;
-    });
 
-    res.render('index', {
-        title: 'Live Q&A',
-        discussions: discussions
+        res.render('index', {
+            title: 'Live Q&A',
+            discussions: discussions
+        });
     });
-
 });
 
 
