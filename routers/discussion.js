@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var controller = require('../controllers/index');
 var controllerCreate = require('../controllers/discussion');
-var controllerQuestion = require('../controllers/create');
+var controllerQuestion = require('../controllers/questions');
 var discussions = "";
-
+var discussionID = "";
 
 // the root url, if requested we will render the index page
 router.get('/create', function (req, res) {
@@ -21,16 +20,18 @@ router.get('/', function (req, res) {
 });
 
 router.get('/:id', function(req, res) {
-  var discussionID = req.params.id;
-  controller.getAllDiscussions(function (response) {
+  discussionID = req.params.id;
+  controllerCreate.getAllQuestions(function (response) {
     discussions = response;
+
+    res.render('discussion', {
+      title: 'Live Q&A',
+      discussions: discussions,
+      discussionID: discussionID
+    });
   });
 
-  res.render('discussion', {
-    title: 'Live Q&A',
-    discussions: discussions,
-    discussionID: discussionID
-  });
+
 });
 
 router.post("/create", function (req, res) {
@@ -38,7 +39,7 @@ router.post("/create", function (req, res) {
 });
 
 router.post('/:id' , function(req, res){
-  controllerCreate.createQuestion(req, res);
+  controllerQuestion.create(req, res, discussionID);
 });
 
 

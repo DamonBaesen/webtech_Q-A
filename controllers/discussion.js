@@ -14,41 +14,21 @@ function create(req, res) {
         if (err) {
             return console.error(err);
         }
-        res.redirect("/");
+        else{
+            res.redirect("/");
+        }
     });
 
 }
 
 module.exports.create = create;
 
-/*
- function createQuestion(req, res) {
- var questionText = req.body.questionName;
- var newQuestion = new Question({
- user: "Damon",
- question: questionText,
- date: Date.now()
- });
-
- newQuestion.save(function (err, message) {
- if (err) {
- return console.error(err);
- }
- res.redirect("/");
- });
-
- }
-
- module.exports.create = createQuestion;
-*/
-
-
-module.exports.getOneDiscussion =  function getAllDiscussions (id,callback) {
+module.exports.getOneQuestion =  function getAllQuestions (id, callback, discussionID) {
     MongoClient.connect('mongodb://localhost:27017/liveQA', function (err, db) {
         if (err) {
             throw err;
         }
-        db.collection('discussions').find({},{question:1, _id:1}).toArray(function (err, result) {
+        db.collection('questions').find({discussionID: discussionID}).toArray(function (err, result) {
             if (err) {
                 throw err;
             }
@@ -56,6 +36,7 @@ module.exports.getOneDiscussion =  function getAllDiscussions (id,callback) {
         });
     });
 };
+
 
 
 
