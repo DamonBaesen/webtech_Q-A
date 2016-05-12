@@ -6,12 +6,27 @@
   <body>
 
 <h1><%= discussions[discussionID].question %></h1>
+
 <form action="/discussion/:id" method="post">
-    <label for="question">Titel</label>
+    <label for="question">Jouw vraag:</label>
     <input type="text" id="questionName" name="questionName" placeholder="Vraag...">
     <input type="submit" name="submitLogin" id="submitLogin" value="Stel een nieuwe vraag">
 </form>
-    <a href="/">Ga terug</a>
+<a href="/">Ga terug</a>
+
+<h3>Ontdek hieronder de vragen bij deze discussie:</h3>
+<ul>
+
+    <% for(var i=0; i < questions.length; i++) { %>
+    <li><%= questions[i].question %></li>
+    <form action="/discussion/:id" method="post">
+        <label for="question">Jouw antwoord:</label>
+        <input type="text" id="questionName" name="questionName" placeholder="Antwoord...">
+        <input type="submit" name="submitLogin" id="submitLogin" value="Verstuur jouw antwoord">
+    </form>
+    <% } %>
+</ul>
+
     
   </body>
 </html>

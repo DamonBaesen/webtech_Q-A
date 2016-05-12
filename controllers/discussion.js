@@ -1,4 +1,3 @@
-var MongoClient = require('mongodb').MongoClient;
 var Discussion = require('../models/discussion');
 
 function create(req, res) {
@@ -23,19 +22,7 @@ function create(req, res) {
 
 module.exports.create = create;
 
-module.exports.getOneQuestion =  function getAllQuestions (id, callback, discussionID) {
-    MongoClient.connect('mongodb://localhost:27017/liveQA', function (err, db) {
-        if (err) {
-            throw err;
-        }
-        db.collection('questions').find({discussionID: discussionID}).toArray(function (err, result) {
-            if (err) {
-                throw err;
-            }
-            return callback(result[id]);
-        });
-    });
-};
+
 
 
 

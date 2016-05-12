@@ -1,3 +1,4 @@
+var MongoClient = require('mongodb').MongoClient;
 var Question = require('../models/question');
 
 function createQuestion(req, res, discussionID) {
@@ -16,8 +17,26 @@ function createQuestion(req, res, discussionID) {
         res.redirect("/discussion/" + discussionID);
     });
 
-}
-
+};
 module.exports.create = createQuestion;
 
+
+module.exports.getAllQuestions = function getAllQuestions (callback, discussionID) {
+    MongoClient.connect('mongodb://localhost:27017/liveQA', function (err, db) {
+        if (err) {
+            throw err;
+        }
+        else {
+            db.collection('questions').find({discussionID: discussionID}).toArray(function (err, result) {
+                if (err) {
+                    throw err;
+                }
+                else {
+                    return callback(result);
+
+                }
+            });
+        }
+    });
+};
 
