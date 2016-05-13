@@ -1,8 +1,8 @@
 var MongoClient = require('mongodb').MongoClient;
-var Question = require('../models/question');
+var Question = require('../models/comment');
 
-function createQuestion(req, res, discussionID) {
-    var questionText = req.body.questionName;
+function createComment(req, res, discussionID, questionID) {
+    var questionText = req.body.commentName;
     var newQuestion = new Question({
         user: "Damon",
         question: questionText,
@@ -18,7 +18,7 @@ function createQuestion(req, res, discussionID) {
     });
 
 };
-module.exports.create = createQuestion;
+module.exports.create = createComment;
 
 
 module.exports.getAllQuestions = function getAllQuestions (callback, discussionID) {
@@ -40,22 +40,5 @@ module.exports.getAllQuestions = function getAllQuestions (callback, discussionI
     });
 };
 
-function createComment(req, res, discussionID) {
-    var questionText = req.body.commentName;
-    var newQuestion = new Question({
-        user: "Damon",
-        question: questionText,
-        date: Date.now(),
-        discussionID: discussionID
-    });
 
-    newQuestion.save(function (err, message) {
-        if (err) {
-            return console.error(err);
-        }
-        res.redirect("/discussion/" + discussionID);
-    });
-
-};
-module.exports.create = createQuestion;
 
