@@ -1,11 +1,17 @@
 var mongoose = require('mongoose');
-var questionSchema = mongoose.Schema({
+var Schema = mongoose.Schema;
+
+var Answer = new Schema({
+    answer: String,
+    user: String
+});
+
+var QuestionSchema = new Schema({
     user: String,
     question: String,
     date: Date,
-    discussionID: String
+    discussionID: String,
+    answers: [Answer]
 });
-// then we compile this schema into a model
-var Question = mongoose.model('Question', questionSchema);
 
-module.exports = Question; 
+module.exports = mongoose.model('Question', QuestionSchema);

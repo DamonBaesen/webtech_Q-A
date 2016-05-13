@@ -1,16 +1,13 @@
 var MongoClient = require('mongodb').MongoClient;
-var Question = require('../models/comment');
+var Comment = require('../models/question');
 
 function createComment(req, res, discussionID, questionID) {
     var questionText = req.body.commentName;
-    var questionID = req.body.commentID;
 
-    var newQuestion = new Question({
+    var newQuestion = new Comment({
         user: "Damon",
         question: questionText,
-        date: Date.now(),
         discussionID: discussionID,
-        questionID: questionID
     });
 
     newQuestion.save(function (err, message) {

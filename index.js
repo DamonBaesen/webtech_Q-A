@@ -32,6 +32,7 @@ app.set('view engine', 'ejs');
 // this public folder will be hosted on the root,
 // so anything you put in it will be available on '/'
 app.use(express.static('public'));
+app.use(express.static('build'));
 
 // the body parser will parse json we post to a url
 // and make it available on the request under req.body
