@@ -19,14 +19,20 @@
 
     <% for(var i=0; i < questions.length; i++) { %>
     <li><%= questions[i].question %></li>
+
     <form action="/discussion/:id/add" method="post">
+        <input type="text" name="commentID" id="commentID" value="<%= i %>" hidden>
         <label for="question">Jouw antwoord:</label>
         <input type="text" id="commentName" name="commentName" placeholder="Antwoord...">
         <input type="submit" name="submitLogin" id="submitLogin" value="Verstuur jouw antwoord">
     </form>
+
     <% } %>
 </ul>
-
-    
+<ul>
+<% for(var i=0; i < comments.length; i++) { %>
+<li><%= comments[i].question %></li>
+<% } %>
+</ul>
   </body>
 </html>
