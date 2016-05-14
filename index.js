@@ -104,7 +104,6 @@ app.use('/discussion', require('./routers/discussion'));
 app.use('/discussion/:id', require('./routers/discussion'));
 app.use('/users', require('./routers/users'));
 
-
 // fire up our server, on port 3000.
 app.listen(config.port, function () {
   console.log(chalk.blue('Your app is available on ' + chalk.bold.yellow('http://localhost:' + config.port) + '!'));
