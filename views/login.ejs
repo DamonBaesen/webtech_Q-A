@@ -5,6 +5,21 @@
   </head>
   <body>
     <h1>Hieronder kan u inloggen</h1>
+
+    <form action="/login" method="post">
+        <div>
+            <label>Username:</label>
+            <input type="text" name="username"/>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="password"/>
+        </div>
+        <div>
+            <input type="submit" value="Log In"/>
+        </div>
+    </form>
+    <!--
     <form action="" method="post">
         <label for="labelinputUsername">Gebruikersnaam</label>
         <input type="text" id="inputUsername" name="inputUsername">
@@ -12,6 +27,7 @@
         <input type="text" id="inputWachtwoord" name="inputWachtwoord">
         <input type="submit" name="submitLogin" id="submitLogin" value="Login">
     </form>
+    -->
     <h2>Nog geen account?</h2>
     <a href="/users/registreer">Registreer je hier</a>
     
