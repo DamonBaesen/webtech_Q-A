@@ -19,6 +19,7 @@
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
     "express-messages": "^1.0.1",
+    "express-session": "^1.13.0",
     "express-validator": "^2.20.4",
     "flash": "^1.1.0",
     "gulp": "^3.9.1",
@@ -34,6 +35,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "gulp-auto-reload": "^0.1.0"
+    "gulp-auto-reload": "^0.1.0",
+    "gulp-livereload": "^3.8.1"
   }
 }

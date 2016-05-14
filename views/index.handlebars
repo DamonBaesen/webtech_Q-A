@@ -1,2 +1,36 @@
-<h2 class="page-header">Dashboard</h2>
-<p>Welcome to your dashboard</p>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/build/css/bundle.css" type="text/css" />
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+   <div class="logo">
+       <a href="/" id="logoIMD">LOGO</a>
+   </div>
+    <h1>Ontdek hieronder discussies bij jou in de buurt:</h1>
+    <ul>
+            <% for(var i=0; i < discussions.length; i++) { %>
+                <li><a href="/discussion/<%= i %>"><%= discussions[i].question %></a></li>
+            <% } %>
+    </ul>
+    <div>
+        <h2>Login om te kunnen reageren of om een discussie aan te maken</h2>
+        <a href="/users/login">Login hier</a>
+    </div>
+
+    <div>
+        <h2>Nog geen account?</h2>
+        <a href="/users/registreer">Registreer je hier</a>
+    </div>
+
+    <div>
+        <h2>Zelf een evenement? Maak hier een discussie aan</h2>
+        <a href="/discussion/create">Maak een discussie aan</a>
+    </div>
+</body>
+
+</html>

@@ -22,12 +22,6 @@ var app = express();
 // connect to our database
 mongoose.connect('mongodb://localhost/liveQA');
 
-// Initialize cors: Cross Origin Resource Sharing
-// by default, you can only request on the same domain.
-// for example: only the site www.myApp.com can call www.myApp.com/api/users/....
-// if you want to make a different application on another url
-// or you set it up on http://localhost:5000 for example (a different port)
-// then you will need to use this cors module to 'allow' cross origin calls.
 app.use(cors());
 
 // register ejs as our view engine,
@@ -47,11 +41,12 @@ app.use(bodyParser());
 app.use(bodyParser.json());
 
 /*====registreer probeersel===========*/
-
+/*
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
 app.set('view engine', 'handlebars');
+*/
 
 // BodyParser Middleware
 app.use(bodyParser.json());
@@ -59,6 +54,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Set Static Folder
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
@@ -66,6 +62,7 @@ app.use(session({
   saveUninitialized: true,
   resave: true
 }));
+
 
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
@@ -84,7 +81,6 @@ app.use(expressValidator({
   }
 }));
 
-// connect flash
 app.use(flash());
 
 //global vars
@@ -103,7 +99,6 @@ app.use(passport.session());
 
 /*=======probeersel login========*/
 
-// include our router
 app.use('/', require('./routers/index'));
 app.use('/discussion', require('./routers/discussion'));
 app.use('/discussion/:id', require('./routers/discussion'));

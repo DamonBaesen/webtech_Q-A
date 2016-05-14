@@ -14,6 +14,7 @@ router.get('/', function(req, res) {
             title: 'Live Q&A',
             discussions: discussions
         });
+
     });
 });
 
