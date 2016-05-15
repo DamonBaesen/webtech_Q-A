@@ -6,7 +6,10 @@ var messageSchema = mongoose.Schema({
     moderator: String,
     question: String,
     date: Date,
-    place: String
+    place: String,
+    lat: String,
+    lng: String,
+    available: String
 });
 // then we compile this schema into a model
 var Discussion = mongoose.model('Discussion', messageSchema);

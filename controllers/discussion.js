@@ -1,4 +1,7 @@
 var Discussion = require('../models/discussion');
+var lat = "";
+var lng = "";
+
 
 function create(req, res) {
     var discussionText = req.body.questionName;
@@ -6,7 +9,9 @@ function create(req, res) {
         moderator: "Damon",
         question: discussionText,
         date: Date.now(),
-        place: "Mechelen"
+        lat: lat,
+        lng: lng,
+        available: "1"
     });
 
     newQuestion.save(function (err, message) {
