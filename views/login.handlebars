@@ -1,12 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="build/css/bundle.css" type="text/css" />
+    <title>
+        <%= title %>
+    </title>
+</head>
+<body>
+<div class="div div--page div--firsthomepage">
 <h2 class="page-header">Account Login</h2>
-<form method="post" action="/users/login">
-    <div class="form-group">
-        <label>Username</label>
-        <input type="text" class="form-control" name="username" placeholder="Username">
+<form method="post" action="/users/login" class="form form--login">
+    <div class="form__div">
+        <label class="form__label">Username</label>
+        <input type="text" class="form-control form__input" name="username" placeholder="Username">
     </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" name="password" placeholder="Password">
+    <div class="form__div">
+        <label class="form__label">Password</label>
+        <input type="password" class="form-control form__input" name="password" placeholder="Password">
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default btn--submit">Submit</button>
 </form>
+</div>
+</body>
+</html>

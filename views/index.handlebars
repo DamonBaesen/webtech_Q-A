@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,29 +9,30 @@
 </head>
 
 <body>
-   <div class="logo">
-       <a href="/" id="logoIMD">LOGO</a>
-   </div>
-    <h1>Ontdek hieronder discussies bij jou in de buurt:</h1>
+<div class="div div--page div--firsthomepage">
+    <div>
+    <h1 class="ontdek">Ontdek hieronder discussies bij jou in de buurt:</h1>
     <ul>
             <% for(var i=0; i < discussions.length; i++) { %>
                 <li><a href="/discussion/<%= i %>"><%= discussions[i].question %></a></li>
             <% } %>
     </ul>
-    <div>
-        <h2>Login om te kunnen reageren of om een discussie aan te maken</h2>
-        <a href="/users/login">Login hier</a>
+    </div>
+    <div class="div div--page div--login">
+        <h2 class="div__text" >Login om te kunnen reageren of om een discussie aan te maken</h2>
+        <a href="/users/login" class="div__link">Login hier</a>
     </div>
 
-    <div>
-        <h2>Nog geen account?</h2>
-        <a href="/users/registreer">Registreer je hier</a>
+    <div class="div div--page div--account">
+        <h2 class="div__text" >Nog geen account?</h2>
+        <a href="/users/registreer" class="div__link">Registreer je hier</a>
     </div>
 
-    <div>
-        <h2>Zelf een evenement? Maak hier een discussie aan</h2>
-        <a href="/discussion/create">Maak een discussie aan</a>
+    <div class="div div--page div--create">
+        <h2 class="div__text" >Zelf een evenement? Maak hier een discussie aan</h2>
+        <a href="/discussion/create" class="div__link">Maak een discussie aan</a>
     </div>
+</div>
 </body>
 
 </html>

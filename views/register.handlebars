@@ -1,29 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/bundle.css" type="text/css" />
+    <title>
+        <%= title %>
+    </title>
+</head>
+<body>
+<div class="div div--page div--firsthomepage">
 <h2 class="page-header">Register</h2>
 {{#if errors}}
 {{#each errors}}
 <div class="alert alert-danger">{{msg}}</div>
 {{/each}}
 {{/if}}
-<form method="post" action="/users/register">
-    <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" placeholder="Name" name="name">
+<form method="post" action="/users/register" class="form form--register">
+    <div class="form-group form__div">
+        <label class="form__label">Name</label>
+        <input type="text" class="form__input" placeholder="Name" name="name">
     </div>
-    <div class="form-group">
-        <label>Username</label>
-        <input type="text" class="form-control" placeholder="Username" name="username">
+    <div class="form-group form__div">
+        <label class="form__label">Username</label>
+        <input type="text" class="form__input" placeholder="Username" name="username">
     </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" placeholder="Email" name="email">
+    <div class="form-group form__div">
+        <label class="form__label">Email</label>
+        <input type="email" class="form__input" placeholder="Email" name="email">
     </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password" name="password">
+    <div class="form-group form__div">
+        <label class="form__label">Password</label>
+        <input type="password" class="form__input" placeholder="Password" name="password">
     </div>
-    <div class="form-group">
-        <label>Confirm Password</label>
-        <input type="password" class="form-control" placeholder="Password" name="password2">
+    <div class="form-group form__div">
+        <label class="form__label">Confirm Password</label>
+        <input type="password" class="form__input" placeholder="Password" name="password2">
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn--submit">Submit</button>
 </form>
+    </div>
+</body>
+</html>
+

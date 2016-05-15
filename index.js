@@ -27,7 +27,7 @@ app.use(cors());
 // register ejs as our view engine,
 // express will now take ejs files from the views folder
 // see our index url for an example.
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 // host a static folder (for css files and images)
 // this public folder will be hosted on the root,
@@ -41,12 +41,12 @@ app.use(bodyParser());
 app.use(bodyParser.json());
 
 /*====registreer probeersel===========*/
-/*
+
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
 app.set('view engine', 'handlebars');
-*/
+
 
 // BodyParser Middleware
 app.use(bodyParser.json());
