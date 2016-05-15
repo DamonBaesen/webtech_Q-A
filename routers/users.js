@@ -12,13 +12,13 @@ router.get('/login', function (req, res) {
     });
 });
 
-router.get('/registreer', function (req, res) {
-    res.render('signup', {
+router.get('/register', function (req, res) {
+    res.render('register', {
         title: 'Live Q&A'
     });
 });
 
-router.post("/registreer", function (req, res) {
+router.post("/register", function (req, res) {
     controller.registreer(req, res);
 
 

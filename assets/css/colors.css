@@ -1,4 +1,63 @@
 body
 {
-    background-color: #aaaaaa;
+    background-color: purple;
+    color: floralwhite;
+    background-image: url("http://cdn.osxdaily.com/wp-content/uploads/2015/07/Mac-Animation-Studio-Office-Setup-5.jpg");
+    width: 90%;
+}
+
+p{
+    color: darkslategray;
+}
+
+a{
+    color: floralwhite;
+}
+
+h1{
+    color: lightgrey;
+}
+
+h2{
+    color: lightgray;
+}
+
+.header--navigation{
+    background-color: #1a1a1a;
+    width: 100%;
+}
+
+.li__link{
+    color: whitesmoke;
+    opacity: 0.8;
+}
+
+.li__link:hover{
+    opacity: 0.4;
+}
+
+.title__link{
+    color: whitesmoke;
+
+}
+
+.footer__text{
+    color: floralwhite;
+}
+
+.div__link{
+    font-size: 19px;
+    text-decoration: underline;
+}
+
+.div__link:hover{
+    opacity: 0.5;
+}
+
+.btn--submit:hover{
+    background-color: mediumpurple;
+}
+
+.alert{
+    color: darkred;
 }
