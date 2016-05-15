@@ -48,15 +48,8 @@ liverefresh.watch('./build/css');
 app = require('express')() //express server
 server = require('http').createServer(app) //http wrapper server
 io = require('socket.io').listen(server) //socket.io in charge
-server.listen(1234)
+server.listen(3000);
 
-// watch .js and .css files
-watch = require('node-watch')
-filter = function(pattern, fun){
-    return function(filename){
-        if(pattern.test(filename){fun(filename);}
-    }
-}
 
 
 gulp.task('watch', function(){
