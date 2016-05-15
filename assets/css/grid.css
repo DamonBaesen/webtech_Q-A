@@ -65,3 +65,13 @@ li{
 .form--login{
     margin-bottom: 220px;
 }
+
+.form--create{
+    margin-bottom: 300px;
+}
+
+.btn--create{
+    display: block;
+    margin-top: 20px;
+    width: 200px;
+}
