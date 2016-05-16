@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var controllerCreate = require('../controllers/discussion');
 var controllerQuestion = require('../controllers/questions');
 var controllerComment = require('../controllers/comment');
+var controllerDelete = require('../controllers/delete');
 var controller = require('../controllers/index');
 var discussions = "";
 var questions = "";
@@ -58,6 +59,10 @@ router.post('/:id' , function(req, res){
 router.post('/:id/add' , function(req, res){
     questID = req.body.commentID;
   controllerComment.create(req, res, discussionID);
+});
+
+router.post('/delete' , function(req, res){
+    controllerDelete.create();
 });
 
 
