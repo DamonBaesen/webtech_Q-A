@@ -1,0 +1,56 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/bundle.css" type="text/css" />
+    <title><%= title %></title>
+</head>
+<body>
+<h1>{{discussions.question}}</h1>
+<!--<h1><%= discussions[discussionID].question %></h1>-->
+<a href="/">Ga terug</a>
+<form action="/discussion/:id" method="post">
+    <label for="question">Jouw vraag:</label>
+    <input type="text" id="questionName" name="questionName" placeholder="Vraag...">
+    <input type="submit" name="submitLogin" id="submitLogin" value="Stel een nieuwe vraag">
+</form>
+
+
+<h3>Ontdek hieronder de vragen bij deze discussie:</h3>
+
+<ul>
+    {{#each questions}}
+    <li>{{question}}</li>
+    <form action="/discussion/:id/add" method="post">
+        <input type="text" name="commentID" id="commentID" value="<%= i %>" hidden>
+        <label for="question">Jouw antwoord:</label>
+        <input type="text" id="commentName" name="commentName" placeholder="Antwoord...">
+        <input type="submit" name="submitLogin" id="submitLogin" value="Verstuur jouw antwoord">
+    </form>
+    {{/each}}
+</ul>
+<!--<ul>
+
+    <% for(var i=0; i < questions.length; i++) { %>
+    <li><%= questions[i].question %></li>
+
+    <form action="/discussion/:id/add" method="post">
+        <input type="text" name="commentID" id="commentID" value="<%= i %>" hidden>
+        <label for="question">Jouw antwoord:</label>
+        <input type="text" id="commentName" name="commentName" placeholder="Antwoord...">
+        <input type="submit" name="submitLogin" id="submitLogin" value="Verstuur jouw antwoord">
+    </form>
+
+    <% } %>
+</ul>
+-->
+<ul>
+    {{#each comments}}
+    <li>{{comment.question}}</li>
+    {{/each}}
+</ul>
+<!--<ul>
+    <% for(var i=0; i < comments.length; i++) { %>
+    <li><%= comments[i].question %></li>
+    <% } %>
+</ul>-->
+</body>
+</html>

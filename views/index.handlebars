@@ -12,11 +12,16 @@
 <div class="div div--page div--firsthomepage">
     <div>
     <h1 class="ontdek">Ontdek hieronder discussies bij jou in de buurt:</h1>
-    <ul>
+        <ul class="people_list">
+            {{#each discussions}}
+            <li><a href="/discussion/{{question}}">{{question}}</a></li>
+            {{/each}}
+        </ul>
+    <!--<ul>
             <% for(var i=0; i < discussions.length; i++) { %>
                 <li><a href="/discussion/<%= i %>"><%= discussions[i].question %></a></li>
             <% } %>
-    </ul>
+    </ul>-->
     </div>
     <div class="div div--page div--login">
         <h2 class="div__text" >Login om te kunnen reageren of om een discussie aan te maken</h2>
@@ -28,7 +33,7 @@
         <a href="/users/registreer" class="div__link">Registreer je hier</a>
     </div>
 
-    <div class="div div--page div--create">
+    <div class="div div--homepage div--create">
         <h2 class="div__text" >Zelf een evenement? Maak hier een discussie aan</h2>
         <a href="/discussion/create" class="div__link">Maak een discussie aan</a>
     </div>
